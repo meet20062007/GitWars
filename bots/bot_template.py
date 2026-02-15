@@ -245,7 +245,14 @@ def update(context):
                     enemy_dist = distance(enemy["x"], enemy["y"], nearest_coin["x"], nearest_coin["y"])
 
                     # WRITE YOUR LOGIC HERE
-                    pass 
+                    if(dist-enemy_dist<0):
+                        target_angle = angle_to(my_x, my_y, enemy["x"], enemy["y"])
+                        return ("SHOOT", target_angle)
+                    else:
+                        dx=nearest_coin["x"]-my_x
+                        dy=nearest_coin["y"]-my_y
+
+                        return ("MOVE",(dx,dy))
 
                     # # TIP: Compare enemy_dist with my_dist.
                     # If an enemy is closer to this coin, you may want to shoot to knock them back first.
