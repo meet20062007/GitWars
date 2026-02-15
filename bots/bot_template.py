@@ -230,9 +230,13 @@ def update(context):
             if will_bullet_hit_me(my_x, my_y, bullet):
 
                 # WRITE YOUR LOGIC HERE
+                theta = math.degrees(math.atan2(bullet["vy"], bullet["vx"]))+math.pi/2
+                dx = math.cos(math.radians(theta))
+                dy = math.sin(math.radians(theta))
 
+                return ("MOVE",(dx,dy))
                 #return ("MOVE",(dx,dy))
-                pass
+                
 
         if coins:
             nearest_coin, dist = find_nearest(my_x, my_y, coins)
