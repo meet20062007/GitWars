@@ -268,6 +268,11 @@ def update(context):
         for bullet in bullets:
             if will_bullet_hit_me(my_x, my_y, bullet):
 
+                theta = math.degrees(math.atan2(bullet["vy"], bullet["vx"]))+math.pi/2
+                dx = math.cos(theta)
+                dy = math.sin(theta)
+
+                return ("MOVE",(dx,dy))
                 # WRITE YOUR LOGIC HERE
                 
                 #return ("MOVE",(dx,dy))
