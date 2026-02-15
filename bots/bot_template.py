@@ -284,6 +284,8 @@ def update(context):
             if nearest_enemy:
 
                 if dist < 80:
+                    target_angle = angle_to(my_x, my_y, nearest_enemy["x"], nearest_enemy["y"])
+                    return ("SHOOT", target_angle)
                     # What if the two tanks are stuck to each other (very close range)?
 
                     # WRITE YOUR LOGIC HERE (example: move away, strafe, or reposition)
